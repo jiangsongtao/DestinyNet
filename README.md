@@ -25,3 +25,4 @@ This repository contains the code for the paper "DestinyNet: A Deep Learning-Bas
 
 ## Note
 The `args` object contains all the necessary parameters for training the DestinyNet model. You can modify these parameters as per your dataset requirements.
+all data used is in the https://drive.google.com/file/d/1E494DhIx5RLy0qv_6eWa9426Bfmq28po/view?usp=drive_link
