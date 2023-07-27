@@ -3,13 +3,13 @@
 ## Description
 This repository contains the code for the paper "DestinyNet: A Deep Learning-Based Single-Cell Lineage Tracing Framework for Fate Clustering, Flow, and Prediction", published in the journal Nature Biotechnology Brief Communication.
 
-##**Introduction**
+## **Introduction**
 
 We have developed a simple deep learning framework yet is able to encode single-cell RNA sequencing data, clonal information and descendant cell types of clones to decode the fate of any undetermined cell in three ways.
 
 <img width="574" alt="image" src="https://github.com/jiangsongtao/DestinyNet/assets/43131870/a9b1973f-4cd6-48bb-acd4-449999f84f01">
 
-##**Model Architecture**
+## **Model Architecture**
 
 <img width="512" alt="image" src="https://github.com/jiangsongtao/DestinyNet/assets/43131870/3c89c2f7-bea7-4dd8-9488-8dfbe8709546">
 
