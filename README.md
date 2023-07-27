@@ -1,7 +1,8 @@
 # DestinyNet
 
 ## Description
-DestinyNet is a deep learning-based single-cell lineage tracing framework for fate clustering, flow, and prediction, as published in the Nature Biotechnology Brief Communication.
+This repository contains the code for the paper "DestinyNet: A Deep Learning-Based Single-Cell Lineage Tracing Framework for Fate Clustering, Flow, and Prediction", published in the journal Nature Biotechnology Brief Communication.
+
 
 ## How to Use?
 
