@@ -1,7 +1,7 @@
 # DestinyNet
 
 ## Description
-This repository contains the code for the paper "DestinyNet: A Deep Learning-Based Single-Cell Lineage Tracing Framework for Fate Clustering, Flow, and Prediction", published in the journal Nature Biotechnology Brief Communication.
+This repository contains the code for the paper "DestinyNet: A Deep Learning-Based Single-Cell Lineage Tracing Framework for Fate Clustering, Flow, and Prediction".
 
 ## **Introduction**
 
