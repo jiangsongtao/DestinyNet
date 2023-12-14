@@ -36,7 +36,6 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
-    'hoverxref.extension',
     "nbsphinx"
 ]
 
