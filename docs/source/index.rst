@@ -21,3 +21,4 @@ Contents
    notebooks/biddy.ipynb
    notebooks/dynamic.ipynb
    notebooks/pei.ipynb
+   notebooks/Darlin.ipynb
