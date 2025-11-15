@@ -51,12 +51,11 @@ class SELayer(nn.Module):
 class MutiheadAttention(nn.Module):
     def __init__(self, input_dim, dim_k, dim_v,num_heads):
         super(MutiheadAttention, self).__init__()
-        self.dim_q = dim_k # 一般默认 Q=K
+        self.dim_q = dim_k 
         self.dim_k = dim_k
         self.dim_v = dim_v
         self.num_units=dim_k
         self.num_heads=num_heads
-        #定义线性变换函数
         self.linear_q = nn.Linear(input_dim, dim_k, bias=False)
         self.linear_k = nn.Linear(input_dim, dim_k, bias=False)
         self.linear_v = nn.Linear(input_dim, dim_v, bias=False)
@@ -100,10 +99,10 @@ class DestinyNet(nn.Module):
         nn.Module.__init__(self)
         self.att=MutiheadAttention(len_embedding*2,512,512,64)
         self.layernorm=nn.LayerNorm(512)
-        self.conv1 = nn.Conv1d(1, 32, 4)  # 输入通道数为1，输出通道数为6
+        self.conv1 = nn.Conv1d(1, 32, 4)  
         self.relu1=nn.LeakyReLU(0.2, inplace=True)
         self.rblock1 = ResidualBlock(32)
-        self.conv2 = nn.Conv1d(32,64, 4)  # 输入通道数为6，输出通道数为16
+        self.conv2 = nn.Conv1d(32,64, 4)  
         self.batchn1=nn.BatchNorm1d(64)
         self.relu2= nn.LeakyReLU(0.2, inplace=True)
         self.rblock2 = ResidualBlock(64)
@@ -119,14 +118,12 @@ class DestinyNet(nn.Module):
         self.fc1 = nn.Linear(7424, num_relations)
         
     def forward(self, x):
-        # 输入x -> conv1 -> relu -> 2x2窗口的最大池化
         x=self.att(x)+x
         x=self.layernorm(x)
         x = self.conv1(x)
         x = self.relu1(x)
         x = F.max_pool1d(x, 2)
         x=self.rblock1(x)
-        # # 输入x -> conv2 -> relu -> 2x2窗口的最大池化
         x = self.conv2(x)
         x=self.batchn1(x)
         x=self.relu2(x)
@@ -144,20 +141,19 @@ class DestinyNet(nn.Module):
         x=self.relu4(x)
         x = F.max_pool1d(x, 2)
         x=self.rblock4(x)
-        # # view函数将张量x变形成一维向量形式，总特征数不变，为全连接层做准备
         x = x.view(x.size()[0], -1)
         x=self.dropout(x)
         x=self.fc1(x)
         return x
 class TrainDataset(Dataset):
-    # 构造器初始化方法
+    
     def __init__(self,length,traincell1,traincell2,train_rel,adata_orig):
         self.length=length
         self.traincell1=traincell1
         self.traincell2=traincell2
         self.adata_orig=adata_orig
         self.train_rel=train_rel
-    # 重写getitem方法用于通过idx获取数据内容
+    
     def __getitem__(self, idx):
         cell1_id=int(self.traincell1[idx])
         cell2_id=int(self.traincell2[idx])
@@ -169,7 +165,7 @@ class TrainDataset(Dataset):
         genetype=torch.tensor(genetype)
         return gene1,gene2,genetype
 
-    # 重写len方法获取数据集大小
+    
     def __len__(self):
         return self.length
 
@@ -295,7 +291,7 @@ def train(args):
             loss=1*(loss1+loss2)+1000*loss3+10*loss4
             print('epoch=' + str(epoch) + ', batch=' + str(i) + ' ' + ' loss=', loss)
 
-            optimizer.zero_grad()  # 清除梯度
+            optimizer.zero_grad()  
             loss.backward()
             optimizer.step()
           
