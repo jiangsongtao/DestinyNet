@@ -33,6 +33,6 @@ We have developed a simple deep learning framework yet is able to encode single-
     DestinyNet.train(args)
     ```
 
-## Note
-The `args` object contains all the necessary parameters for training the DestinyNet model. You can modify these parameters as per your dataset requirements.
-all data used is in the https://drive.google.com/file/d/1E494DhIx5RLy0qv_6eWa9426Bfmq28po/view?usp=drive_link
+
+## Data Access
+The hematopoiesis dataset (Weinreb) can be accessed at the Gene Expression Omnibus database with accession number GSE140802, the reprogramming dataset with accession number GSE99915 and the hematopoiesis (Pei) dataset with accession number GSE144273, the hematopoiesis dataset (Bowling) with accession number GSE146972, the hematopoiesis dataset (Li) with accession number GSE222486, the lung dataset with accession numbers GSE137805 and GSE137811.
